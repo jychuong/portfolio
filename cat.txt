@@ -1,0 +1,109 @@
+
+PImage b;
+int count = 15;
+float[] posX = new float[count];
+float[] posY = new float[count];
+float[] speedX = new float[count];
+float[] speedY = new float[count];
+float[] sizeW = new float[count];
+float[] sizeH = new float[count];
+int[] colorr = new int[count];
+int[] colorg = new int[count];
+int[] colorb = new int[count];
+float[] alpha = new float[count];
+float[] rotate = new float[count];
+float[] size = new float[count];
+
+
+void setup() {
+  size(800, 800);
+  b=loadImage("pusheen2.png");
+  for (int i=0; i < posX.length; i++) {
+    posX[i] = width/2;
+    posY[i] = height/2;
+    speedX[i] = random(-5, 5);
+    speedY[i] = random(-5, 5);
+    sizeW[i] = random(20, 25);
+    sizeH[i] = random(20, 100);
+    colorr[i] = int(random(150, 255));
+    colorg[i] = int(random(150, 255));
+    colorb[i] = int(random(150, 255));
+    alpha[i] = random(100,255);
+    rotate[i] = random(255);
+  }
+}
+void draw() {
+  background(240,240,251);
+  fill(251,251,240);
+  rect(40,40,width-80,height-80);
+  for (int i = 0; i < posX.length; i++) {
+    //update all positions
+    posX[i] += speedX[i];
+    posY[i] += speedY[i];
+    //draw all balls
+    fill(colorr[i],alpha[i]);
+    fill(colorg[i],alpha[i]);
+    fill(colorb[i],alpha[i]);
+    thing(posX[i], posY[i], rotate[i]++, colorr[i],colorg[i],colorb[i],alpha[i]);
+
+    //check boundaries for all balls
+
+    if (posX[i] < 40+sizeW[i]/2 || posX[i] > (width-40)-sizeW[i]/2 ) {
+      speedX[i] = -speedX[i];
+    }
+    if (posY[i] < 40+sizeW[i]/2 || posY[i] > (height-40)-sizeW[i]/2) {
+      speedY[i] = -speedY[i];
+    }
+  }
+
+
+  for (int i = 10; i < posX.length; i++) {
+    //update all positions
+    posX[i] += speedX[i];
+    posY[i] += speedY[i];
+    //draw all balls
+    cat(posX[i], posY[i], rotate[i]++);
+
+    if (posX[i] < 40+sizeW[i]/2 || posX[i] > (width-40)-sizeW[i]/2 ) {
+      speedX[i] = -speedX[i];
+    }
+    if (posY[i] < 40+sizeW[i]/2 || posY[i] > (height-40)-sizeW[i]/2) {
+      speedY[i] = -speedY[i];
+    }
+  }
+    for (int i = 10; i < posX.length; i++) {
+    //update all positions
+    posX[i] += speedX[i];
+    posY[i] += speedY[i];
+    ellipse(posX[i]*(random(10)), posY[i], sizeW[i]+10, sizeW[i]+10);
+
+    if (posX[i] < 40+sizeW[i]/2 || posX[i] > (width-40)-sizeW[i]/2 ) {
+      speedX[i] = -speedX[i];
+    }
+    if (posY[i] < 40+sizeW[i]/2 || posY[i] > (height-40)-sizeW[i]/2) {
+      speedY[i] = -speedY[i];
+    }
+  }
+}
+
+void cat(float lox, float loy, float rotate){
+  pushMatrix();
+  translate(lox,loy);
+  rotate(radians(rotate));
+  image(b,width/2-150,250,80,80);
+  popMatrix();
+}
+
+void thing(float lox, float loy, float rotate, int cr, int cg, int cb,float a) {
+  pushMatrix();
+  translate(lox,loy);
+  rotate(radians(rotate));
+  smooth();
+  noStroke();
+
+  fill(cr,cg,cb,a);
+  rect(0, 0, 80, 50);
+  fill(cr,cg,cb,a);
+  ellipse(width/2, height/2, 60, 60);
+  popMatrix();
+}

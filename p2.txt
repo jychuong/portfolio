@@ -1,0 +1,443 @@
+int num = 3; 
+int xpos = 0;
+int ypos=0;
+int ntime;
+Spring[] springs = new Spring[num]; 
+bigpaw[] bigpaw = new bigpaw [num];
+cat [] cat = new cat[num];
+
+void setup() {
+
+  println(ntime);
+  frameRate(10);
+
+  size(800, 800);
+  noStroke();
+  springs[0] = new Spring(width/2, height/2, 180, 0.98, 8.0, 0.1, springs, 0, 100); 
+  springs[1] = new Spring(width/2, height/2, 120, 0.95, 9.0, 0.1, springs, 1, 100); 
+  springs[2] = new Spring(width/2, height/2, 200, 0.90, 9.9, 0.1, springs, 2, 100);
+  noStroke();
+  color col;
+    col = color(random(180, 255), random(180, 255), random(180, 255));
+    bigpaw[0]= new bigpaw(col, width/2, height/2,1);
+    cat[0] = new cat(col,width/2,height/2,1);
+
+}
+
+void draw() {
+  background(255, 252, 233);
+  
+    if (frameCount >10 && frameCount <500) {
+      bigpaw[0].bpawdraw();
+    }
+    if (frameCount >15 && frameCount <500) {
+      bigpaw[0].toebean1();
+    }
+    if (frameCount >20 && frameCount <500) {
+      bigpaw[0].toebean2();
+    }
+    if (frameCount >25 && frameCount <500) {
+      bigpaw[0].toebean3();
+    }
+    if (frameCount >30 && frameCount <500) {
+      bigpaw[0].toebean4();
+    }
+    if (frameCount >35 && frameCount <500) {
+      bigpaw[0].toebean5();
+    }
+    if (frameCount >40 && frameCount <500) {
+      bigpaw[0].pawwiggle();
+    }
+  
+  if (frameCount >100 && frameCount <500) {
+    for (Spring spring : springs) { 
+      spring.update(); 
+      spring.display();
+    }
+  }
+
+  if (frameCount >120 && frameCount <500 ) {
+
+    for (Spring spring : springs) { 
+      spring.pressed();
+    }   
+    for (Spring spring : springs) { 
+      spring.newPos();
+    }    
+    for (Spring spring : springs) { 
+      spring.released();
+    }
+  }
+  if (frameCount >200 && frameCount <600){
+  
+  fill(223,247,255);
+  rect(xpos-800,0,width, height);
+  xpos=xpos+20;
+  if (xpos>800){
+    xpos=800;
+  }
+}
+  if (frameCount>250 && frameCount <600){
+    cat[0].head();
+    cat[0].faceetc();
+    cat[0].eyes();
+    cat[0].wiggle();
+    cat[0].tonguew();
+    
+  }
+
+}
+
+void mousePressed() {
+  for (Spring spring : springs) { 
+    spring.pressed();
+  }
+}
+
+void mouseReleased() {
+  for (Spring spring : springs) { 
+    spring.released();
+  }
+}
+
+class bigpaw {
+  color c;
+  float xpos;
+  float ypos;
+  int ntime;
+  int wstate=0;
+  int wigrate;
+
+
+
+  bigpaw(color tempC, float xpostemp, float ypostemp,int wrate) {
+    c = tempC;
+    xpos = xpostemp;
+    ypos = ypostemp;
+    wigrate=wrate;
+
+    ntime = millis();
+  }
+
+  void bpawdraw() {
+    fill(100);
+    noStroke();
+    ellipse(xpos, ypos, 420, 310);
+    ellipse(xpos-100, ypos+40, 250, 250);
+    ellipse(xpos+100, ypos+40, 250, 250);
+    ellipse(xpos-200, ypos-110, 150, 150);
+    ellipse(xpos+200, ypos-110, 150, 150);
+    ellipse(xpos-72, ypos-180, 150, 150);
+    ellipse(xpos+72, ypos-180, 150, 150);
+  }
+
+  void toebeans() {
+    fill(255, 218, 224);
+    noStroke();
+    ellipse(xpos, ypos, 320, 210);
+    ellipse(xpos-90, ypos+25, 170, 190);
+    ellipse(xpos+90, ypos+25, 170, 190);
+    ellipse(xpos-200, ypos-110, 50, 50);
+    ellipse(xpos+200, ypos-110, 50, 50);
+    ellipse(xpos-72, ypos-180, 50, 50);
+    ellipse(xpos+72, ypos-180, 50, 50);
+  }
+  void toebean1() {
+    fill(255, 218, 224);
+    noStroke();
+    ellipse(xpos-200, ypos-110, 50, 50);
+  }
+  void toebean2() {
+    fill(255, 218, 224);
+    noStroke();
+    ellipse(xpos-72, ypos-180, 50, 50);
+  }
+  void toebean3() {
+    fill(255, 218, 224);
+    noStroke();
+    ellipse(xpos+72, ypos-180, 50, 50);
+  }
+
+  void toebean4() {
+    fill(255, 218, 224);
+    noStroke();
+    ellipse(xpos+200, ypos-110, 50, 50);
+  }
+
+  void toebean5() {
+    fill(255, 218, 224);
+    noStroke();
+    ellipse(xpos, ypos, 320, 210);
+    ellipse(xpos-90, ypos+25, 170, 190);
+    ellipse(xpos+90, ypos+25, 170, 190);
+  }
+
+
+  void pawwiggle() {
+    if ((millis()-ntime)> wigrate*100) {
+      if (wstate ==1) {
+        wstate = 0;
+      } else {
+        wstate =1;
+      }
+      ntime = millis();
+      
+    }
+    wiggle1();
+  }
+
+  void wiggle1() {
+    if (wstate ==1) {
+      ypos+=random(-2, 2);
+    }
+  }
+}
+
+class cat {
+  int timer = -3000;
+  int ntime;
+  int ntime2;
+  int wstate = 0;
+  int wigrate;
+  color c; 
+  float xpos;
+  float ypos;
+  PFont f;
+
+  cat(color tempC, float xpostemp, float ypostemp, int wrate) {
+    c = tempC;
+    xpos = xpostemp;
+    ypos = ypostemp;
+    wigrate=wrate;
+    ntime = millis();
+
+    f= createFont("Broadway", 30);
+    textFont(f);
+  }
+
+  void head() {
+    noStroke();
+    fill(155);
+    ellipse(xpos, ypos, 450, 400);
+    ellipse(xpos, ypos+50, 500, 300);
+    triangle(xpos-180, ypos-250, xpos, ypos-150, xpos-180, ypos -100);
+    triangle(xpos+180, ypos-250, xpos, ypos-150, xpos+180, ypos -100);
+    stroke(70);
+    fill(255, 218, 224);
+    triangle(xpos-160, ypos-220, xpos-90, ypos-180, xpos-160, ypos -150);
+    triangle(xpos+160, ypos-220, xpos+90, ypos-180, xpos+160, ypos -150);
+  }
+
+  void faceetc() {
+    stroke(80);
+    fill(155);
+    arc(xpos-20, ypos+45, 40, 40, 0, PI, OPEN);
+    arc(xpos+20, ypos+45, 40, 40, 0, PI, OPEN);
+    stroke(0);
+    fill(0);
+    triangle(xpos-20, ypos+30, xpos+20, ypos+30, xpos, ypos+50);
+    stroke(100);
+    fill(255, 218, 224);
+    ellipse(xpos-200, ypos+20, 100, 30);
+    ellipse(xpos+200, ypos+20, 100, 30);
+    tonguew();
+  }
+  void eyes() {
+    noStroke();
+    fill(0);
+    ellipse(xpos-100, ypos-20, 60, 60);
+    ellipse(xpos+100, ypos-20, 60, 60);
+    noStroke();
+    fill(255);
+    ellipse(xpos-90, ypos-30, 20, 20);
+    ellipse(xpos+110, ypos-30, 20, 20);
+  }
+
+  void tongue() {
+    noStroke();
+    fill(255, 141, 161);
+    ellipse(xpos, ypos+65, 30, 30);
+    stroke(80);
+    fill(155);
+    arc(xpos-20, ypos+45, 40, 40, 0, PI, OPEN);
+    arc(xpos+20, ypos+45, 40, 40, 0, PI, OPEN);
+    stroke(0);
+    fill(0);
+    triangle(xpos-20, ypos+30, xpos+20, ypos+30, xpos, ypos+50);
+  }
+  void wiggle() {
+    if ((millis()-ntime)> wigrate*100) {
+
+      if (wstate ==1) {
+        wstate = 0;
+      } else {
+        wstate =1;
+      }
+      ntime = millis();
+    }
+    wiggle1();
+  }
+
+  void wiggle1() {
+    if (wstate ==1) {
+      ypos+=random(-2, 2);
+    }
+  }
+  void tonguew() {  
+    if (millis() - ntime2 >800) {
+      ntime2 = millis();   
+      tongue();
+      fill(155);
+      text("blep", xpos+random(-300,300), ypos+300+random(80));
+  }  
+}
+}
+
+class Spring { 
+  color c;
+  int wstate=0;
+  int wrate;
+
+  // Screen values 
+  float xpos, ypos;
+  float tempxpos, tempypos; 
+  int size = 20; 
+  boolean over = false; 
+  boolean move = false; 
+
+  // Spring simulation constants 
+  float mass;       // Mass 
+  float k = 0.2;    // Spring constant 
+  float damp;       // Damping 
+  float rest_posx;  // Rest position X 
+  float rest_posy;  // Rest position Y 
+
+  // Spring simulation variables 
+  //float pos = 20.0; // Position 
+  float velx = 0.0;   // X Velocity 
+  float vely = 0.0;   // Y Velocity 
+  float accel = 0;    // Acceleration 
+  float force = 0;    // Force 
+
+  Spring[] friends;
+  int me;
+
+  // Constructor
+  Spring(float x, float y, int s, float d, float m, 
+    float k_in, Spring[] others, int id, color tempC) { 
+    xpos = tempxpos = x; 
+    ypos = tempypos = y;
+    rest_posx = x;
+    rest_posy = y;
+    size = s;
+    damp = d; 
+    mass = m; 
+    k = k_in;
+    friends = others;
+    me = id;
+
+    c = tempC;
+  } 
+
+  void update() { 
+    if (move) { 
+      rest_posy = mouseY; 
+      rest_posx = mouseX;
+    } 
+
+    force = -k * (tempypos - rest_posy);  // f=-ky 
+    accel = force / mass;                 // Set the acceleration, f=ma == a=f/m 
+    vely = damp * (vely + accel);         // Set the velocity 
+    tempypos = tempypos + vely;           // Updated position 
+
+    force = -k * (tempxpos - rest_posx);  // f=-ky 
+    accel = force / mass;                 // Set the acceleration, f=ma == a=f/m 
+    velx = damp * (velx + accel);         // Set the velocity 
+    tempxpos = tempxpos + velx;           // Updated position 
+
+
+    if ((overEvent() || move) && !otherOver() ) { 
+      over = true;
+    } else { 
+      over = false;
+    }
+  } 
+
+  // Test to see if mouse is over this spring
+  boolean overEvent() {
+    float disX = tempxpos - mouseX;
+    float disY = tempypos - mouseY;
+    if (sqrt(sq(disX) + sq(disY)) < size/2 ) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  // Make sure no other springs are active
+  boolean otherOver() {
+    for (int i=0; i<num; i++) {
+      if (i != me) {
+        if (friends[i].over == true) {
+          return true;
+        }
+      }
+    }
+    return false;
+  }
+
+  void display() { 
+    fill(255, 218, 224);
+    bpawdraw();
+    toebeans();
+  } 
+ 
+ void bpawdraw() {
+    fill(100);
+    noStroke();
+    ellipse(tempxpos, tempypos, 420, 310);
+    ellipse(tempxpos-100, tempypos+40, 250, 250);
+    ellipse(tempxpos+100, tempypos+40, 250, 250);
+    ellipse(tempxpos-200, tempypos-110, 150, 150);
+    ellipse(tempxpos+200, tempypos-110, 150, 150);
+    ellipse(tempxpos-72, tempypos-180, 150, 150);
+    ellipse(tempxpos+72, tempypos-180, 150, 150);
+ }
+ void toebeans() {
+    fill(255, 218, 224);
+    noStroke();
+    ellipse(tempxpos, tempypos, 320, 210);
+    ellipse(tempxpos-90, tempypos+25, 170, 190);
+    ellipse(tempxpos+90, tempypos+25, 170, 190);
+    ellipse(tempxpos-200, tempypos-110, 50, 50);
+    ellipse(tempxpos+200, tempypos-110, 50, 50);
+    ellipse(tempxpos-72, tempypos-180, 50, 50);
+    ellipse(tempxpos+72, tempypos-180, 50, 50);
+ }
+
+  void pressed() { 
+    if (over) { 
+      move = true;
+    } else { 
+      move = false;
+    }
+  } 
+
+  void released() { 
+    move = false; 
+    rest_posx = xpos;
+    rest_posy = ypos;
+  }
+
+  void newPos() {
+    if ((millis()-ntime)> wrate*5000) {
+      if (wstate ==1) {
+        wstate = 0;
+      } 
+      ntime = millis();
+      display();
+    xpos = random(width);
+    ypos = random(height);
+  }
+}
+}
