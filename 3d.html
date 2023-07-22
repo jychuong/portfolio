@@ -15,7 +15,6 @@
   <a href="index.html" >HOME</a>
   <a href="about.html">ABOUT</a>
   <a href="3d.html"class="active">3D ART</a>
-  <!-- <a href="code.html">CODE</a> -->
   <a href="games.html">GAMES</a>
   <a href="digillus.html">DIGITAL ILLUSTRATIONS</a>
 </div>
@@ -216,17 +215,15 @@ height: 10px;
 
 <div class="container">
 <div class="image-grid2">
-  <img id="myImg" src="images/ducks.png"   alt = "I just really wanted
-  to make a world of ducks. Heh." >
+  <img id="myImg" src="images/ducks.png"   alt = "" >
 
 <img id="myImg2" src="images/bun.png"
- alt = "One of my first 3d model works where I made a character named Bun who loves mischief.">
+ alt = "">
 
  <img id="myImg3" src="images/wbun.png"
- alt = "Work in progress of one of my main models for BFA exhibition." >
+ alt = "" >
 
-<img id="myImg4" src="images/space.png" alt = "What I would think it'd be like if the earth was gone and we had to keep
-our chickens somewhere."
+<img id="myImg4" src="images/space.png" alt = ""
  >
 
 
@@ -300,9 +297,7 @@ img2.onclick = function(){
 }
 
   img3.onclick = function(){
-  modal3.style.display = "block";
-  modalImg3.src = this.src;
-  captionText3.innerHTML = this.alt;
+  window.location.replace("fs.html","_blank");
 }
 
 //opens the image as a new tab link
