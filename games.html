@@ -1,0 +1,102 @@
+<html>
+  <title>Digital Illustrations</title>
+<head>
+  <meta charset="UTF-8">
+  <meta name="description" content="Free Web tutorials">
+  <meta name="keywords" content="HTML,CSS,XML,JavaScript">
+  <meta name="author" content="Your Name">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/style.css">
+
+
+</head>
+<h1>J.Y.CHUONG</h1>
+<body>
+
+  <div div class="vertical-menu" style="position: fixed;top:20px;left: 10px;" >
+    <a href="index.html" >HOME</a>
+    <a href="about.html">ABOUT</a>
+    <a href="3d.html">3D ART</a>
+    <a href="code.html">CODE</a>
+    <a href="games.html" class="active">GAMES</a>
+    <a href="digillus.html">DIGITAL ILLUSTRATIONS</a>
+  </div>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+<body>
+
+
+#myImg {
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+#myImg:hover {opacity: 0.7;}
+
+
+
+#myImg2 {
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+#myImg2:hover {opacity: 0.7;}
+
+
+
+@-webkit-keyframes zoom {
+  from {-webkit-transform:scale(0)}
+  to {-webkit-transform:scale(1)}
+}
+
+@keyframes zoom {
+  from {transform:scale(0)}
+  to {transform:scale(1)}
+}
+
+@media only screen and (max-width: 700px){
+  .modal-content {
+    width: 100%;
+  }
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class = "container">
+  <div class="image-grid2">
+
+<img id="myImg" src="images/frytitle.png">
+<img id="myImg2" src="images/ponzugame.png">
+
+</div>
+</div>
+
+<script>
+var modal = document.getElementById("myModal");
+var img = document.getElementById("myImg");
+var modalImg = document.getElementById("img01");
+
+var modal2 = document.getElementById("myModal2");
+var img2 = document.getElementById("myImg2");
+var modalImg2 = document.getElementById("img02");
+
+
+img.onclick = function(){
+  window.open("https://forbidden-guy.itch.io/fry-adventures","_blank");
+}
+
+img2.onclick = function(){
+window.open("https://jychuong.github.io/whereisponzu/","_blank");
+}
+</script>
+
+</body>
+
+</html>

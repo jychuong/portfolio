@@ -16,6 +16,7 @@
   <a href="about.html">ABOUT</a>
   <a href="3d.html"class="active">3D ART</a>
   <a href="code.html">CODE</a>
+  <a href="games.html">GAMES</a>
   <a href="digillus.html">DIGITAL ILLUSTRATIONS</a>
 </div>
 
@@ -156,6 +157,17 @@ padding: 10px 0;
 height: 10px;
 }
 
+#caption5 {
+margin: auto;
+display: block;
+width: 80%;
+max-width: 700px;
+text-align: center;
+color: #ccc;
+padding: 10px 0;
+height: 10px;
+}
+
 .modal-content, #caption3 {
   -webkit-animation-name: zoom;
   -webkit-animation-duration: 0.6s;
@@ -216,6 +228,8 @@ height: 10px;
 <img id="myImg4" src="images/space.png" alt = "What I would think it'd be like if the earth was gone and we had to keep
 our chickens somewhere."
  >
+
+
 </div>
 </div>
 
@@ -269,6 +283,10 @@ var img4 = document.getElementById("myImg4");
 var modalImg4 = document.getElementById("img04");
 var captionText4 = document.getElementById("caption4");
 
+/*var modal5 = document.getElementById("myModal5");
+var img5 = document.getElementById("myImg5");
+var modalImg5 = document.getElementById("img05");
+var captionText5 = document.getElementById("caption5");*/
 
 img.onclick = function(){
   modal.style.display = "block";
@@ -287,12 +305,16 @@ img2.onclick = function(){
   captionText3.innerHTML = this.alt;
 }
 
+//opens the image as a new tab link
 img4.onclick = function(){
-modal4.style.display = "block";
-modalImg4.src = this.src;
-captionText4.innerHTML = this.alt;
+window.open("https://hubs.mozilla.com/terFysz/chickens-in-spacee","_blank");
 }
 
+/*img5.onclick = function(){
+modal5.style.display = "block";
+modalImg5.src = this.src;
+captionText5.innerHTML = this.alt;
+}*/
 
 
 var span = document.getElementsByClassName("close")[0];
@@ -315,10 +337,10 @@ span.onclick = function() {
   modal4.style.display = "none";
 }
 
-var span = document.getElementsByClassName("close")[4];
+/*var span = document.getElementsByClassName("close")[4];
 span.onclick = function() {
   modal5.style.display = "none";
-}
+}*/
 
 </script>
 
