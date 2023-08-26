@@ -4,31 +4,82 @@
   <meta charset="UTF-8">
   <meta name="description" content="Free Web tutorials">
   <meta name="keywords" content="HTML,CSS,XML,JavaScript">
-  <meta name="author" content="Your Name">
+  <meta name="author" content="JYChuong">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="css/style.css">
-
-
+  <link rel="stylesheet" href="css/style3.css">
+  <link href="https://fonts.cdnfonts.com/css/arcade-classic" rel="stylesheet">
+  <style> @import url('https://fonts.cdnfonts.com/css/arcade-classic'); </style>
+  <script src="bun.js" type="module"></script>
+  <script src="squid.js" type="module"></script>
+  <script src="wrc.js" type="module"></script>
+  <script src="sq.js" type="module"></script>
 </head>
+<header>
 <h1>J.Y.CHUONG</h1>
-<body>
-
-  <div div class="vertical-menu" style="position: fixed;top:20px;left: 10px;" >
+  <div div class="nav">
     <a href="index.html" >HOME</a>
     <a href="about.html">ABOUT</a>
     <a href="3d.html"class="active">3D ART</a>
-    <!-- <a href="code.html">CODE</a> -->
     <a href="games.html">GAMES</a>
-    <a href="digillus.html" >DIGITAL ILLUSTRATIONS</a>
+    <a href="digillus.html" >DIGITAL ILLUS.</a>
   </div>
-<head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
+</header>
 
-</head>
 <body>
+<h2> FEELIN' SNACKISH </h2>
+<div class ="txtcontainer">
+  <p>
+    Feelin’ Snackish is a 3d virtual installation based on two snacks from childhood:
+    White Rabbit Candy and Dried Squid.
+    <br>
+    Created with: Blender, Unity, Procreate, After Effects
+    <br>
+    <a href= "https://jychuong.itch.io/feelin-snackish" target="_blank">Click here for download. </a>
+   </p>
 
+</div>
 
+<div class = "imgslider">
+  <div class = "imgcon">
+    <img id = "imageBox" src = "images/rabbit.png">
+  </div>
 
+  <div class = "imgthumb">
+  <img src ="images/rabbit.png" onclick ="myFunction(this)">
+  <img src ="images/home.png" onclick ="myFunction(this)">
+  <img src ="images/squid.png" onclick ="myFunction(this)">
+</div>
+</div>
+
+<br>
+<div class ="container2">
+  <div id= "space"> </div>
+  <div id= "space2"> </div>
+</div>
+
+<div class ="txtcontainer">
+  <p>
+    Characters created for the two snack worlds. Ended up not using model on the right.
+ </p>
+</div>
+
+<div class ="container2">
+  <div id= "space3"> </div>
+  <div id= "space4"> </div>
+</div>
+
+<div class ="txtcontainer">
+  <p>
+    Base islands made in Blender without extra objects.
+ </p>
+</div>
+
+<script>
+  function myFunction(imgthumb){
+    var fullImg = document.getElementById("imageBox");
+    fullImg.src = imgthumb.src;
+  }
+</script>
 
 </body>
 
