@@ -87,6 +87,7 @@ canvas{
 
 a{
   text-decoration: none;
+
 }
 
 .modal {
@@ -137,7 +138,7 @@ h2{
   font-weight:1;
   text-align: center;
   position: center;
-  padding-top: 50px;
+  padding-top: 25px;
 
 }
 

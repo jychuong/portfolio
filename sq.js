@@ -34,9 +34,9 @@ function init() {
     1,1500
   );
   renderer = new THREE.WebGLRenderer();
-  renderer.setClearColor(0x9FC4E7);
+  renderer.setClearColor(0xFFFFFF);
   renderer.setPixelRatio(window.devicePixelRatio);
-  renderer.setSize(window.innerWidth, 800);
+  renderer.setSize(window.innerWidth, window.innerHeight);
   // Add scene to gltf.html
   container.appendChild(renderer.domElement);
 
