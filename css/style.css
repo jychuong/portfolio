@@ -5,6 +5,18 @@ body {
   display:block;
 }
 
+header{
+  position:relative;
+  top:0;
+  width:100%;
+  display:flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+a{
+  text-decoration: none;
+}
 
 .image-grid{
   --gap: 16px;
@@ -52,6 +64,8 @@ body {
   padding-top: 50px;
 }
 
+
+
 /*makes a single image take up 2 columns*/
 .image-grid-col-2{
   grid-column: span 2;
@@ -76,15 +90,14 @@ body {
 
 
 h1{
-  color: gray;
-  font-size: 30px;
-  font-weight:1;
-  text-align: left;
-  margin-bottom: 0%;
-  padding:1rem 5rem;
-  position: relative;
-
+    color: gray;
+    font-size: 30px;
+    font-weight:1;
+    text-align: left;
+    padding:1rem 5rem;
+    position: relative;
 }
+
 h2{
   color: black;
   font-size: 1.5rem;
@@ -103,11 +116,11 @@ h3{
 
 .nav {
   overflow: hidden;
-  position: absolute;
-  background-color: white;
+  position: relative;
   width: 100%;
-  text-align: center;
+  text-align: right;
   display:inline;
+  padding:1rem 5rem;
 }
 
 .nav a {

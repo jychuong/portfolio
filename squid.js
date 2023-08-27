@@ -16,10 +16,10 @@ let ticker = 0;
 
 // Call init and animate functions (defined below)
 
-init2();
+init();
 animate();
 
-function init2() {
+function init() {
 
   //Identify div in HTML to place scene
   container = document.getElementById("space2");
