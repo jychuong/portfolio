@@ -55,6 +55,8 @@ a{
   height:100%;
   object-fit:cover;
   padding-top: 50px;
+  padding-bottom: 50px;
+
 }
 
 .image-grid2 >img{
@@ -62,6 +64,7 @@ a{
   height:100%;
   object-fit:cover;
   padding-top: 50px;
+  padding-bottom: 50px;
 }
 
 
@@ -165,6 +168,7 @@ h3{
   display: block;
   width: 80%;
   max-width: 700px;
+  border-radius: 10px;
 }
 
 .modal-content, #caption {
