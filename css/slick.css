@@ -7,7 +7,7 @@
     box-sizing: border-box;
     background-color: #9FC4E7;
     width: 100%;
-
+    border-radius: 20px;
 
     -webkit-user-select: none;
        -moz-user-select: none;
@@ -87,8 +87,11 @@
 
     height: 100%;
     min-height: 1px;
-    padding-left: 15px;
-    padding-right: 15px;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-bottom: 15px;
+    padding-top: 15px;
+
 
 }
 [dir='rtl'] .slick-slide
@@ -98,7 +101,7 @@
 .slick-slide img
 {
     display: block;
-    width:100%;
+    width:70%;
     box-shadow: 10px 10px pink;
 }
 .slick-slide.slick-loading img
