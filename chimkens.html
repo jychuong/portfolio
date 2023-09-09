@@ -1,0 +1,100 @@
+<html>
+  <title>CHIMKENS</title>
+<head>
+  <meta charset="UTF-8">
+  <meta name="keywords" content="HTML,CSS,XML,JavaScript">
+  <meta name="author" content="JYChuong">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/style3.css">
+  <link rel="stylesheet" href="css/slide.css">
+  <link href="https://fonts.cdnfonts.com/css/arcade-classic" rel="stylesheet">
+  <style> @import url('https://fonts.cdnfonts.com/css/arcade-classic'); </style>
+  <script src="chick.js" type="module"></script>
+  <script src="astro.js" type="module"></script>
+  <script src="orb.js" type="module"></script>
+  <script src="sq.js" type="module"></script>
+  <link rel="stylesheet" href="css/slick.css">
+</head>
+
+<header>
+<h1><a href= "index.html">J.Y.CHUONG</a></h1>
+  <div div class="nav">
+    <a href="index.html" >HOME</a>
+    <a href="about.html">ABOUT</a>
+    <a href="3d.html"class="active">3D ART</a>
+    <a href="games.html">GAMES</a>
+    <a href="digillus.html" >DIGITAL ILLUS.</a>
+  </div>
+</header>
+
+<body>
+  <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+  <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+  <script type="text/javascript" src="slick/slick.min.js"></script>
+
+<h2> CHIMKENS IN SPACE </h2>
+<div class ="txtcontainer">
+  <p>
+    A small, fun project that introduced me to Mozilla Hubs. This is a fictional world of a few chickens having to survive
+    in space after Earth has, well, gotten destroyed.
+    <br>
+    Created with: Blender, Mozilla Hubs
+    <br>
+    <a href= "https://hubs.mozilla.com/terFysz/chickens-in-spacee" target="_blank" style ="color:#346ECE;">Click here for Mozilla Hubs Link. </a>
+   </p>
+
+</div>
+
+<div class = "imgslider">
+  <div class = "imgcon">
+    <img id = "imageBox" src = "images/chickenorb.png">
+  </div>
+
+  <div class = "imgthumb">
+  <img src ="images/chickenorb.png" onclick ="myFunction(this)">
+  <img src ="images/barn.png" onclick ="myFunction(this)">
+  <img src ="images/rockets.png" onclick ="myFunction(this)">
+</div>
+</div>
+
+<br>
+<hr style ="width:50%">
+<div class ="txtcontainer">
+  <p>
+    Chimkens.
+ </p>
+</div>
+<div class ="container2">
+  <div id= "space"> </div>
+  <div id= "space2"> </div>
+</div>
+<br>
+<hr style ="width:50%">
+<div class ="txtcontainer">
+  <p>
+    Base globe without extra objects.
+ </p>
+</div>
+
+<div class ="container2">
+  <div id= "space3"> </div>
+</div>
+
+<br>
+<hr style ="width:50%">
+
+
+<footer>
+  ©J.Y.Chuong 2023
+</footer>
+
+<script>
+  function myFunction(imgthumb){
+    var fullImg = document.getElementById("imageBox");
+    fullImg.src = imgthumb.src;
+  }
+</script>
+
+</body>
+
+</html>
